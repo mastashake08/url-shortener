@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Log;
 use Monolog\Processor\WebProcessor;
+use Carbon\Carbon;
 class WebProcessorLogging
 {
     /**
@@ -16,7 +17,8 @@ class WebProcessorLogging
      */
     public function handle($request, Closure $next)
     {
-      Log::getMonolog()->pushProcessor(new WebProcessor);
+      Log::getMonolog()->pushProcessor(new WebProcessor());
+      Log::info('REQUEST',['time'=>Carbon::now()->toRfc2822String()]);
         return $next($request);
     }
 }
