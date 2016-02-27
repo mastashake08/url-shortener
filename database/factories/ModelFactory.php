@@ -13,9 +13,16 @@
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
+        'name' => 'Jyrone Parker',
+        'email' => 'jyrone.parker@gmail.com',
+        'password' => bcrypt('n1nt3nd0'),
         'remember_token' => str_random(10),
     ];
+});
+
+$factory->define(App\Url::class, function(Faker\Generator $faker){
+  return [
+    'input_url' => $faker->url,
+    'output_url' => str_random(8),
+  ];
 });

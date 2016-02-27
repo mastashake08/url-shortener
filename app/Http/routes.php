@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::post('addUrl', 'UrlController@addUrl');
 Route::get('{output_url}','UrlController@redirect');
 
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -31,4 +32,9 @@ Route::get('{output_url}','UrlController@redirect');
 
 Route::group(['middleware' => ['web']], function () {
     //
+    Route::group(['middleware' => ['auth.basic']],function(){
+        Route::get('admin/all', 'UrlController@all');
+    });
+
+
 });

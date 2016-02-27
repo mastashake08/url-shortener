@@ -10,6 +10,9 @@ use App\Http\Controllers\Controller;
 class UrlController extends Controller
 {
     //
+    public function all(){
+      return Url::all();
+    }
     public function addUrl(Request $request){
       $url = Url::Create([
         'input_url' => $request->input_url,
