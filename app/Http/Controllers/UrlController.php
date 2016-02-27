@@ -18,4 +18,9 @@ class UrlController extends Controller
       $request->session()->flash('url', $url->output_url);
       return back();
     }
+
+    public function redirect($output_url){
+      $url = Url::where('output_url', $output_url)->first();
+      return redirect($url->input_url);
+    }
 }

@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::post('addUrl', 'UrlController@addUrl');
+Route::get('{output_url}','UrlController@redirect');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
